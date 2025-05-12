@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 # pip install djangorestframework
 # SyntaxError: positional argument follows keyword argument
-
+from decouple import config
 from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-3)t+oyw6bb1bqgbb#q=$$s2fzl)#@z-g(n)tgf&#g4n_4b&r*r'
@@ -58,16 +58,17 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'painting.wsgi.application'
-DATABASES ={
-    'default':{
-        'ENGINE':'django.db.backends.postgresql',
-        'NAME':'paintstore',
-        'USER':'postgres',
-        'PASSWORD':'43211234',
-        'HOST':'localhost',
-        'PORT':'5432',
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
     }
 }
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {

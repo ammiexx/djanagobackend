@@ -1,3 +1,4 @@
+# generic class based views
 from rest_framework import generics
 from .models import Customer
 from .serializers import CustomerSerializer
