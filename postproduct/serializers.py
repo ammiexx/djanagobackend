@@ -1,6 +1,6 @@
 from rest_framework import serializers
 from .models import PostProduct
-class JobSerializer(serializers.ModelSerializer):
-    class meta:
+class ProductSerializer(serializers.ModelSerializer):
+    class Meta:
         model = PostProduct
         fields = '__all__'
