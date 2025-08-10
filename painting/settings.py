@@ -26,10 +26,7 @@ ALLOWED_HOSTS = [
     '*'
 ]
 
-# ❌ Remove this if it's currently there
-# CORS_ALLOW_ALL_ORIGINS = True
 
-# ✅ Add this instead:
 CORS_ALLOWED_ORIGINS = [
     "https://cbn-sigma.vercel.app",
 ]
