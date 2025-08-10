@@ -36,7 +36,6 @@ INSTALLED_APPS = [
     'salesman',
     'postproduct',
     'chat',
-    'channels',
     'products',
     'favorite',
     'corsheaders',
