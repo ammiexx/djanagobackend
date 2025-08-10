@@ -21,16 +21,10 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-3)t+oyw6bb1bqgbb#q=$$s2fzl)#@z-g(n)tgf&#g4n_4b&r*r'
 DEBUG = True
-
+CORS_ALLOW_ALL_ORIGINS = True
 ALLOWED_HOSTS = [
-    '*'
+   '*'
 ]
-
-
-CORS_ALLOWED_ORIGINS = [
-    "https://cbn-sigma.vercel.app",
-]
-
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -86,7 +80,7 @@ DATABASES = {
         'USER': config('DB_USER'),
         'PASSWORD': config('DB_PASSWORD'),
         'HOST': config('DB_HOST'),
-        'PORT': config('DB_PORT',cast=int),
+        'PORT': config('DB_PORT'),
     }
 }
 
