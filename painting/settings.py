@@ -23,10 +23,17 @@ SECRET_KEY = 'django-insecure-3)t+oyw6bb1bqgbb#q=$$s2fzl)#@z-g(n)tgf&#g4n_4b&r*r
 DEBUG = True
 CORS_ALLOW_ALL_ORIGINS = True
 ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    'djanagobackend-5.onrender.com',
+    '*'
 ]
+
+# ❌ Remove this if it's currently there
+# CORS_ALLOW_ALL_ORIGINS = True
+
+# ✅ Add this instead:
+CORS_ALLOWED_ORIGINS = [
+    "https://cbn-sigma.vercel.app",
+]
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
