@@ -42,6 +42,15 @@ INSTALLED_APPS = [
     'products',
     'favorite',
     'corsheaders',
+    'realestate',
+    'electronic',
+    'car',
+    'food',
+    'appliance',
+    'beauty',
+    'wedding',
+    'entertainment',
+    'travel',
 ]
 ASGI_APPLICATION = "your_project_name.asgi.application"
 
@@ -75,7 +84,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'painting.wsgi.application'
 import dj_database_url
 DATABASES = {
-    'default': dj_database_url.parse(config("DATABASE_URL"))
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
+    }
 }
 
 AUTH_PASSWORD_VALIDATORS = [

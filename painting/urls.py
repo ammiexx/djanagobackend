@@ -11,6 +11,15 @@ urlpatterns = [
     path('api/',include('chat.urls')),
     path('api/', include('products.urls')),
     path('api/',include('products.urls')),
+    path('api/',include('realestate.urls')),
+    path('backend/',include('electronic.urls')),
+    path('backend/',include('car.urls')),
+    path('backend/',include('food.urls')),
+    path('appliance/',include('appliance.urls')),
+    path('beauty/' ,include('beauty.urls')),
+    path('wedding/',include('wedding.urls')),
+    path('enter/', include('entertainment.urls')),
+    path('travel/', include('travel.urls')),
     path('admin/', admin.site.urls),
 ]
 
