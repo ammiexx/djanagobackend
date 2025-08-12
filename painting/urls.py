@@ -2,8 +2,10 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path,include
+from rest_framework.authtoken.views import obtain_auth_token
 
 urlpatterns = [
+    path('api-token-auth/', obtain_auth_token),
     path('api/', include('customer.urls')),
     path('api/', include('postproduct.urls')),
     path('api/',include('salesman.urls')),
@@ -20,6 +22,10 @@ urlpatterns = [
     path('wedding/',include('wedding.urls')),
     path('enter/', include('entertainment.urls')),
     path('travel/', include('travel.urls')),
+    path('discounts/',include('dailydiscounts.urls')),
+    path('discounts/', include('weeklydiscounts.urls')),
+    path('new/', include('newproducts.urls')),
+    path('upcomming/', include('upcomming.urls')),
     path('admin/', admin.site.urls),
 ]
 

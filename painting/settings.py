@@ -26,6 +26,13 @@ ALLOWED_HOSTS = [
    '*'
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        # or 'rest_framework.authentication.SessionAuthentication',
+    ],
+}
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -34,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
     'notification',
     'customer',
     'salesman',
@@ -51,6 +59,10 @@ INSTALLED_APPS = [
     'wedding',
     'entertainment',
     'travel',
+    'dailydiscounts',
+    'weeklydiscounts',
+    'newproducts',
+    'upcomming',
 ]
 ASGI_APPLICATION = "your_project_name.asgi.application"
 
