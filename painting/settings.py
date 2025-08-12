@@ -16,6 +16,7 @@ BASE_DIR=Path(__file__).resolve().parent.parent
 import os
 MEDIA_URL='media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 from decouple import config
 from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -69,6 +70,7 @@ ASGI_APPLICATION = "your_project_name.asgi.application"
 # are used to process requests/responses
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -77,6 +79,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 ROOT_URLCONF = 'painting.urls'
 TEMPLATES = [
     {
