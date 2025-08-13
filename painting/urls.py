@@ -26,6 +26,7 @@ urlpatterns = [
     path('discounts/', include('weeklydiscounts.urls')),
     path('new/', include('newproducts.urls')),
     path('upcomming/', include('upcomming.urls')),
+    path('api/',include('message.urls')),
     path('admin/', admin.site.urls),
 ]
 

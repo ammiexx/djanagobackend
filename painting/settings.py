@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     'weeklydiscounts',
     'newproducts',
     'upcomming',
+    'message',
 ]
 ASGI_APPLICATION = "your_project_name.asgi.application"
 
