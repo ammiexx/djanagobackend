@@ -66,7 +66,17 @@ INSTALLED_APPS = [
     'upcomming',
     'message',
     'storages',
+    "cloudinary",
+    "cloudinary_storage",
 ]
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dvsmzrizu',
+    'API_KEY': '486168465996781',
+    'API_SECRET': '**********'
+}
+
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 ASGI_APPLICATION = "painting.asgi.application"
 
 # are used to process requests/responses
