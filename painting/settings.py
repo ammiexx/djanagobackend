@@ -14,7 +14,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 BASE_DIR=Path(__file__).resolve().parent.parent
 import os
-MEDIA_URL='/media/'
+MEDIA_URL= '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 from decouple import config
