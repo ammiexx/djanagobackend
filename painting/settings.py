@@ -65,10 +65,9 @@ INSTALLED_APPS = [
     'newproducts',
     'upcomming',
     'message',
-    
-
+    'storages',
 ]
-ASGI_APPLICATION = "your_project_name.asgi.application"
+ASGI_APPLICATION = "painting.asgi.application"
 
 # are used to process requests/responses
 MIDDLEWARE = [
@@ -100,7 +99,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'painting.wsgi.application'
-import dj_database_url
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
