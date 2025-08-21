@@ -27,6 +27,7 @@ urlpatterns = [
     path('new/', include('newproducts.urls')),
     path('upcomming/', include('upcomming.urls')),
     path('api/',include('message.urls')),
+    path('api/', include('education.urls')),
     path('admin/', admin.site.urls),
 ]
 
