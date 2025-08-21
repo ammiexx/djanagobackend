@@ -65,14 +65,13 @@ INSTALLED_APPS = [
     'newproducts',
     'upcomming',
     'message',
-    'storages',
     "cloudinary",
     "cloudinary_storage",
 ]
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': 'dvsmzrizu',
     'API_KEY': '486168465996781',
-    'API_SECRET': '**********'
+    'API_SECRET': 'M79NQRyuhFIQtmbvoZZxZAi0VTM'
 }
 
 
