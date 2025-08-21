@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 # pip install djangorestframework
 # SyntaxError: positional argument follows keyword argument
 from pathlib import Path
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
 BASE_DIR=Path(__file__).resolve().parent.parent
 import os
 MEDIA_URL= '/media/'
@@ -66,8 +69,11 @@ INSTALLED_APPS = [
     'upcomming',
     'message',
     'education',
-    "cloudinary",
-    "cloudinary_storage",
+]
+
+INSTALLED_APPS += [
+    'cloudinary',
+    'cloudinary_storage',
 ]
 CLOUDINARY_STORAGE = {
     'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
