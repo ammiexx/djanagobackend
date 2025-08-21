@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     'upcomming',
     'message',
     'education',
+    'maintenance',
 ]
 
 INSTALLED_APPS += [
