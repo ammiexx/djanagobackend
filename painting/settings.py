@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     'newproducts',
     'upcomming',
     'message',
+    'education',
     "cloudinary",
     "cloudinary_storage",
 ]
