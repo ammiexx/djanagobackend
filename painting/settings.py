@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     'message',
     'education',
     'maintenance',
+    'agriculture',
 ]
 
 INSTALLED_APPS += [

@@ -29,6 +29,7 @@ urlpatterns = [
     path('api/',include('message.urls')),
     path('api/', include('education.urls')),
     path('api/', include('maintenance.urls')),
+    path('api/', include('agriculture.urls')),
     path('admin/', admin.site.urls),
 ]
 
