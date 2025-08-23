@@ -23,7 +23,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 from decouple import config
 from pathlib import Path
 SECRET_KEY = 'django-insecure-3)t+oyw6bb1bqgbb#q=$$s2fzl)#@z-g(n)tgf&#g4n_4b&r*r'
-DEBUG = True
+DEBUG = False
 CORS_ALLOW_ALL_ORIGINS = True
 ALLOWED_HOSTS = [
    '*'
