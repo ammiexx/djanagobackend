@@ -22,7 +22,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 from decouple import config
 from pathlib import Path
-BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-3)t+oyw6bb1bqgbb#q=$$s2fzl)#@z-g(n)tgf&#g4n_4b&r*r'
 DEBUG = True
 CORS_ALLOW_ALL_ORIGINS = True
@@ -78,16 +77,14 @@ INSTALLED_APPS += [
     'cloudinary_storage',
 ]
 CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': config('CLOUDINARY_CLOUD_NAME'),
-    'API_KEY': config('CLOUDINARY_API_KEY'),
-    'API_SECRET': config('CLOUDINARY_API_SECRET')
+    'CLOUD_NAME': os.getenv('CLOUDINARY_CLOUD_NAME'),
+    'API_KEY': os.getenv('CLOUDINARY_API_KEY'),
+    'API_SECRET': os.getenv('CLOUDINARY_API_SECRET')
 }
 
 
 DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 ASGI_APPLICATION = "painting.asgi.application"
-
-# are used to process requests/responses
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
