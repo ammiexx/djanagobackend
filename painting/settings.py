@@ -70,6 +70,7 @@ INSTALLED_APPS = [
     'maintenance',
     'message',
     'agriculture',
+
     'cloudinary',
     'cloudinary_storage',
 ]
