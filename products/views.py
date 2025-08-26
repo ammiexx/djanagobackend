@@ -13,3 +13,7 @@ class MyProductListAPIView(generics.ListAPIView):
         if user_id:
             return Product.objects.filter(clerk_user_id=user_id)
         return Product.objects.none()
+
+class ProductRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
