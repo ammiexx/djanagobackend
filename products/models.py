@@ -1,6 +1,7 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
 class Product(models.Model):
+    clerk_user_id = models.CharField(max_length=255, null=True, blank=True) 
     first_name = models.CharField(max_length=100, null=True, blank=True)
     last_name = models.CharField(max_length=100, null=True, blank=True)
     profile_photo=CloudinaryField('image',null=True,blank=True)
