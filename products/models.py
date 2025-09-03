@@ -45,6 +45,8 @@ class Product(models.Model):
     web_site = models.URLField(blank=True, null=True)
     contact_phone = models.CharField(max_length=30, blank=True, null=True)
     date_posted = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+    latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
 
     def __str__(self):
         return self.product_name
