@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from .models import Product, ProductImage
 
-
 class ProductImageSerializer(serializers.ModelSerializer):
     image = serializers.SerializerMethodField()
 
@@ -10,19 +9,17 @@ class ProductImageSerializer(serializers.ModelSerializer):
         fields = ['id', 'image']
 
     def get_image(self, obj):
-        try:
-            return obj.image.url if obj.image else None
-        except Exception:
-            return None
+        return obj.image.url if obj.image else None
 
 
 class ProductSerializer(serializers.ModelSerializer):
     images = ProductImageSerializer(many=True, read_only=True)
 
-    # Handle Cloudinary fields properly
-    product_photo = serializers.SerializerMethodField()
-    profile_photo = serializers.SerializerMethodField()
+    # Writable fields
+    product_photo = serializers.ImageField(required=False, allow_null=True)
+    profile_photo = serializers.ImageField(required=False, allow_null=True)
 
+    # Additional image uploads
     uploaded_images = serializers.ListField(
         child=serializers.ImageField(max_length=1000000, allow_empty_file=False, use_url=False),
         write_only=True,
@@ -32,18 +29,6 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = '__all__'
-
-    def get_product_photo(self, obj):
-        try:
-            return obj.product_photo.url if obj.product_photo else None
-        except Exception:
-            return None
-
-    def get_profile_photo(self, obj):
-        try:
-            return obj.profile_photo.url if obj.profile_photo else None
-        except Exception:
-            return None
 
     def create(self, validated_data):
         uploaded_images = validated_data.pop('uploaded_images', [])
