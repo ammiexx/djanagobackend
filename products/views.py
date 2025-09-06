@@ -8,6 +8,10 @@ import math
 class ProductListCreateAPIView(generics.ListCreateAPIView):
     queryset = Product.objects.filter(verified=True).order_by('-date_posted')
     serializer_class = ProductSerializer
+
+class PrductListCreateAPIView(generics.ListCreateAPIView):
+    queryset = Product.objects.all()
+    serializer_class = ProductSerializer
 class MyProductListAPIView(generics.ListAPIView):
     serializer_class = ProductSerializer
 
