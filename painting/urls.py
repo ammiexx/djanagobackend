@@ -11,7 +11,7 @@ urlpatterns = [
     path('api/',include('salesman.urls')),
     path('api/', include('notification.urls')),
     path('api/',include('chat.urls')),
-    path('api/', include('products.urls')),
+    path('api/',include('products.urls')),
     path('api/',include('realestate.urls')),
     path('backend/',include('electronic.urls')),
     path('backend/',include('car.urls')),
