@@ -47,6 +47,7 @@ class Product(models.Model):
     date_posted = models.DateTimeField(auto_now_add=True, null=True, blank=True)
     latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
     longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
+    verified = models.BooleanField(default=False)
 
     def __str__(self):
         return self.product_name
