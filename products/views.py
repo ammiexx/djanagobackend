@@ -6,8 +6,9 @@ from .serializers import ProductSerializer
 import math
 
 class ProductListCreateAPIView(generics.ListCreateAPIView):
-    queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    def get_queryset(self):
+        return Product.objects.filter(verified=True).order_by('-date_posted')
 class MyProductListAPIView(generics.ListAPIView):
     serializer_class = ProductSerializer
 
@@ -25,9 +26,7 @@ class NearbyProductListAPIView(generics.ListAPIView):
     serializer_class = ProductSerializer
 
     def get_queryset(self):
-        queryset = Product.objects.all()
-
-        # Read query params
+        queryset = Product.objects.filter(verified=True)
         lat = self.request.query_params.get("lat")
         lng = self.request.query_params.get("lng")
         radius = self.request.query_params.get("radius", 5)  # default 5km
