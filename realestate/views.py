@@ -1,5 +1,6 @@
 from rest_framework import generics
 from .models import RealEstate
+<<<<<<< HEAD
 import stripe
 from django.conf import settings
 from django.views.decorators.csrf import csrf_exempt
@@ -42,3 +43,10 @@ def create_checkout_session(request):
             return JsonResponse({"error": str(e)}, status=500)
 
     return JsonResponse({"error": "Invalid request method"}, status=405)
+=======
+from .serializers import RealEstateSerializer
+
+class ProductListCreateAPIView(generics.ListCreateAPIView):
+    queryset = RealEstate.objects.all()
+    serializer_class = RealEstateSerializer
+>>>>>>> 3cf6f522ea88383a9117ee65a09e02a75541438a
