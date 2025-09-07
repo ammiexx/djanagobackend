@@ -12,17 +12,13 @@ class ProductImageInline(admin.TabularInline):
 class ProductAdmin(admin.ModelAdmin):
     inlines = [ProductImageInline]
 
-    # Show important fields in the list
     list_display = ("product_name", "company_name", "category", "verified", "date_posted")
-
-    # Add sidebar filters
     list_filter = ("verified", "category")
-
-    # Search bar
     search_fields = ("product_name", "company_name", "email")
-
-    # Actions (bulk verify / unverify)
     actions = ["mark_verified", "mark_unverified"]
+
+    # ✅ editable checkbox for verified directly in list view
+    list_editable = ("verified",)
 
     def mark_verified(self, request, queryset):
         updated = queryset.update(verified=True)
