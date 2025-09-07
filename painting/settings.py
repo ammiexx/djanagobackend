@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
-<<<<<<< HEAD
+
 from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 import os
@@ -19,11 +19,9 @@ env=environ.Env()
 environ.Env.read_env(os.path.join(BASE_DIR, ".env"))
 STRIPE_SECRET_KEY = env("STRIPE_SECRET_KEY")
 STRIPE_PUBLISHABLE_KEY = env("STRIPE_PUBLISHABLE_KEY")
-=======
 # pip install djangorestframework
 # SyntaxError: positional argument follows keyword argument
 from pathlib import Path
->>>>>>> 3cf6f522ea88383a9117ee65a09e02a75541438a
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api

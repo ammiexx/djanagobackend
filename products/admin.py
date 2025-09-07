@@ -19,18 +19,6 @@ class ProductAdmin(admin.ModelAdmin):
 
     # ✅ editable checkbox for verified directly in list view
     list_editable = ("verified",)
-    # Show important fields in the list
-    list_display = ("product_name", "company_name", "category", "verified", "date_posted")
-
-    # Add sidebar filters
-    list_filter = ("verified", "category")
-
-    # Search bar
-    search_fields = ("product_name", "company_name", "email")
-
-    # Actions (bulk verify / unverify)
-    actions = ["mark_verified", "mark_unverified"]
-
 
     def mark_verified(self, request, queryset):
         updated = queryset.update(verified=True)
