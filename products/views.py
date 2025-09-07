@@ -1,14 +1,27 @@
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.exceptions import ValidationError
-from .models import Product
+from .models import Product, ProductImage
+from .serializers import ProductSerializer
 from .serializers import ProductSerializer
 import math
 
 class ProductListCreateAPIView(generics.ListCreateAPIView):
     serializer_class = ProductSerializer
+
     def get_queryset(self):
         return Product.objects.filter(verified=True).order_by('-date_posted')
+
+    def perform_create(self, serializer):
+        # Save product first
+        product = serializer.save()
+
+        # Handle uploaded images
+        uploaded_images = self.request.FILES.getlist('uploaded_images')
+        for i, image in enumerate(uploaded_images):
+            if i >= 10:  # enforce max 10 images
+                break
+            ProductImage.objects.create(product=product, image=image)
 class MyProductListAPIView(generics.ListAPIView):
     serializer_class = ProductSerializer
 
