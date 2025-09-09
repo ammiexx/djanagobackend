@@ -10,6 +10,18 @@ class Product(models.Model):
     company_name = models.CharField(max_length=255)
     product_photo = CloudinaryField('image',null=True,blank=True)
     description = models.TextField(blank=True)
+    discount = models.CharField(
+        max_length=20,
+        choices=[
+            ('ended', ' Ended'),
+            ('5', '5%'),
+            ('10', '10%'),
+            ('15', '15%'),
+            ('20', '20%'),
+        ],
+        default='ended'
+    )
+
     category = models.CharField(
         max_length=50,
         choices=[('fashions', 'Fashions'), ('electronics', 'Electronics'),('homes', 'Homes'),('carbrands', 'Car Brands'),
@@ -39,6 +51,7 @@ class Product(models.Model):
         null=True,
         blank=True
     )
+    
     location = models.CharField(max_length=255, null=True, blank=True)
     contact_telegram = models.URLField(blank=True, null=True)
     contact_tick = models.URLField(blank=True, null=True)
@@ -48,6 +61,7 @@ class Product(models.Model):
     latitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
     longitude = models.DecimalField(max_digits=9, decimal_places=6, null=True, blank=True)
     verified = models.BooleanField(default=False)
+
 
     def __str__(self):
         return self.product_name

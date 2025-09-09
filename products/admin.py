@@ -16,7 +16,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = ("verified", "category")
     search_fields = ("product_name", "company_name", "email")
     actions = ["mark_verified", "mark_unverified"]
-
+    # well done
     # ✅ editable checkbox for verified directly in list view
     list_editable = ("verified",)
 
