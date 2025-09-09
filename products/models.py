@@ -10,6 +10,7 @@ class Product(models.Model):
     company_name = models.CharField(max_length=255)
     product_photo = CloudinaryField('image',null=True,blank=True)
     description = models.TextField(blank=True)
+    product_video = CloudinaryField('video', null=True, blank=True)
     discount = models.CharField(
         max_length=20,
         choices=[

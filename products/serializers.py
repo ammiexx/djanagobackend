@@ -18,6 +18,7 @@ class ProductSerializer(serializers.ModelSerializer):
     # Writable fields
     product_photo = serializers.ImageField(required=False, allow_null=True)
     profile_photo = serializers.ImageField(required=False, allow_null=True)
+    product_video = serializers.FileField(required=False, allow_null=True)
 
     # Additional image uploads
     uploaded_images = serializers.ListField(
@@ -35,7 +36,7 @@ class ProductSerializer(serializers.ModelSerializer):
         product = Product.objects.create(**validated_data)
 
         for i, image in enumerate(uploaded_images):
-            if i >= 10:
+            if i >= 10:  # limit to 10 images
                 break
             ProductImage.objects.create(product=product, image=image)
 
