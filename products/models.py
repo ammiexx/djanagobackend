@@ -37,12 +37,17 @@ class Product(models.Model):
                  ('fitness', 'Fitness & Sports Service'),('software', 'Software & IT services'),('sercurity', 'Security Services'),('printing', 'Printing & publishing'),
                  ('automotive', 'Automotive Services'),('waste', 'Waste Management & Recycling '),('human', 'Human Resources & staffing'),('energy', 'Energy & Utilities'),
                  ('gaming', 'Gaming & eSports'),('tatue', 'Tatto And Piercing Studios'),('nursing', 'Elderly Care & Nursing Services'),('rental', 'Rental Services'),
-                 ('decor', 'Event Planning & Decor'),('translation', 'Language And Translation'),('nonprofit', 'Non Profit & Charity Organization'),('freight', 'Courier & Freight Services'),
+                 ('decor', 'Event Planning & Decor'),('holyday', 'Holyday Discounts'),('translation', 'Language And Translation'),('nonprofit', 'Non Profit & Charity Organization'),('freight', 'Courier & Freight Services'),
                  ('sallons', 'Beauty Sallons and Barbershops'),('music', 'Music & Instruments'),('office', 'Coworking & Office Spaces'),('digital', 'Digital Marketing Services'),
                  ('architecture', 'Architecture & Engineering Services'),('mental', 'Mental Health & Wellness Services'),('homesecurity', 'Home Securty & Smart Homes'),('land', 'Land Escaping and Gardeing services'),
                  ('podcasting', 'podcasting & Audio Production'),('stationary', 'Stationary & Office Supplieis'),('marin', 'Marine & boating Services'),('virtual', 'Virtual Events and Webinars'),
-                 ('funding', 'Croud Funding And Investment Services'),('elearning', 'Elearning & online Cources'),('carwash', 'Car Wash & Detailing'),('admin', 'Virtual Assistant & Admin Support'),
+                 ('funding', 'Croud Funding And Investment Services'),('elearning', 'Elearning & online Cources'),('carwash'
+                 
+                 , 'Car Wash & Detailing'),('admin', 'Virtual Assistant & Admin Support'),
                  ],
+
+
+
         null=True,
         blank=True
     )

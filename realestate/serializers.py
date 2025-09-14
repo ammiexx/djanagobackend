@@ -1,6 +1,28 @@
 from rest_framework import serializers
 from .models import RealEstate, RealEstateImage
 
+from .models import Order, Wallet, Subscription, Refund
+
+class OrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = "__all__"
+
+class WalletSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Wallet
+        fields = "__all__"
+
+class SubscriptionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Subscription
+        fields = "__all__"
+
+class RefundSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Refund
+        fields = "__all__"
+
 class RealEstateImageSerializer(serializers.ModelSerializer):
     class Meta:
         model = RealEstateImage
