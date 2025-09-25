@@ -16,6 +16,13 @@ class ProductAdmin(admin.ModelAdmin):
     search_fields = ("product_name", "company_name", "email")
     actions = ["mark_verified", "mark_unverified"]
     list_editable = ("verified",)
+    fields = (
+        "product_name", "company_name", "category", "verified",
+        "latitude", "longitude",  # 👈 ensure these are in the form
+        "location", "contact_phone", "contact_telegram", "contact_tick",
+        "web_site", "discount", "condition", "description",
+        "product_photo", "product_video"
+    )
     def mark_verified(self, request, queryset):
         updated = queryset.update(verified=True)
         self.message_user(request, f"{updated} product(s) marked as Verified ✅")

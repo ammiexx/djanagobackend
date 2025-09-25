@@ -1,5 +1,6 @@
 from django.db import models
 from cloudinary.models import CloudinaryField
+
 class Product(models.Model):
     clerk_user_id = models.CharField(max_length=255, null=True, blank=True) 
     email = models.EmailField(default='new@gmail.come')  
@@ -43,7 +44,6 @@ class Product(models.Model):
                  ('architecture', 'Architecture & Engineering Services'),('mental', 'Mental Health & Wellness Services'),('homesecurity', 'Home Securty & Smart Homes'),('land', 'Land Escaping and Gardeing services'),
                  ('podcasting', 'podcasting & Audio Production'),('stationary', 'Stationary & Office Supplieis'),('marin', 'Marine & boating Services'),('virtual', 'Virtual Events and Webinars'),
                  ('funding', 'Croud Funding And Investment Services'),('elearning', 'Elearning & online Cources'),('carwash'
-                 
                  , 'Car Wash & Detailing'),('admin', 'Virtual Assistant & Admin Support'),
                  ],
 
