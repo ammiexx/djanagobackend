@@ -2,34 +2,26 @@ from rest_framework import generics, status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 from rest_framework.exceptions import ValidationError
-from .models import Product, ProductComment, ProductLike, ProductShare
-from .serializers import ProductSerializer, ProductCommentSerializer, ProductLikeSerializer, ProductShareSerializer
+from .models import Product
+from .serializers import ProductSerializer
 import math
 
-# -----------------------------
-# Product Endpoints
-# -----------------------------
 class ProductListCreateAPIView(generics.ListCreateAPIView):
     serializer_class = ProductSerializer
-
     def get_queryset(self):
         return Product.objects.filter(verified=True).order_by('-date_posted')
 
-
 class MyProductListAPIView(generics.ListAPIView):
     serializer_class = ProductSerializer
-
     def get_queryset(self):
         user_id = self.request.query_params.get('userId')
         if user_id:
             return Product.objects.filter(clerk_user_id=user_id)
         return Product.objects.none()
 
-
 class ProductRetrieveUpdateDestroyAPIView(generics.RetrieveUpdateDestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-
 
 class NearbyProductListAPIView(generics.ListAPIView):
     serializer_class = ProductSerializer
@@ -70,48 +62,3 @@ class NearbyProductListAPIView(generics.ListAPIView):
         ]
         return nearby
 
-# -----------------------------
-# Comments
-# -----------------------------
-class ProductCommentListCreateAPIView(generics.ListCreateAPIView):
-    serializer_class = ProductCommentSerializer
-
-    def get_queryset(self):
-        product_id = self.kwargs.get("pk")
-        return ProductComment.objects.filter(product_id=product_id).order_by("-created_at")
-
-    def perform_create(self, serializer):
-        product_id = self.kwargs.get("pk")
-        product = Product.objects.get(pk=product_id)
-        serializer.save(product=product)
-
-
-# -----------------------------
-# Likes
-# -----------------------------
-class ProductLikeToggleAPIView(APIView):
-    def post(self, request, pk):
-        email = request.data.get("email")
-        if not email:
-            return Response({"error": "Email is required"}, status=400)
-
-        product = Product.objects.get(pk=pk)
-        like, created = ProductLike.objects.get_or_create(product=product, email=email)
-
-        if not created:  # unlike if already liked
-            like.delete()
-            return Response({"message": "Unliked", "likes_count": product.like_count})
-
-        return Response({"message": "Liked", "likes_count": product.like_count})
-
-
-# -----------------------------
-# Shares
-# -----------------------------
-class ProductShareCreateAPIView(generics.CreateAPIView):
-    serializer_class = ProductShareSerializer
-
-    def perform_create(self, serializer):
-        product_id = self.kwargs.get("pk")
-        product = Product.objects.get(pk=product_id)
-        serializer.save(product=product)
