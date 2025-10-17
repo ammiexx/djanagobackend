@@ -23,6 +23,8 @@ class ProductAdmin(admin.ModelAdmin):
         "web_site", "discount", "condition", "description",
         "product_photo", "product_video"
     )
+    class Media:
+        js = ("products/admin_geolocation.js",)
     def mark_verified(self, request, queryset):
         updated = queryset.update(verified=True)
         self.message_user(request, f"{updated} product(s) marked as Verified ✅")
