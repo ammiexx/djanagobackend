@@ -12,6 +12,11 @@ class Product(models.Model):
     product_photo = CloudinaryField('image',null=True,blank=True)
     description = models.TextField(blank=True)
     product_video = CloudinaryField('video',resource_type='video', null=True, blank=True)
+    discount_start_date = models.PositiveIntegerField(
+    null=True,
+    blank=True,
+    help_text="Number of days this discount will stay active"
+)
     discount_duration = models.PositiveIntegerField(
     null=True,
     blank=True,
