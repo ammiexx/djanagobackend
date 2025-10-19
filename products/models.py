@@ -15,7 +15,7 @@ class Product(models.Model):
     discount_start_date = models.PositiveIntegerField(
     null=True,
     blank=True,
-    help_text="Number of days this discount will stay active"
+    help_text="Number of days left discount to begin"
 )
     discount_duration = models.PositiveIntegerField(
     null=True,
