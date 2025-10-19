@@ -25,7 +25,6 @@ class Product(models.Model):
     discount = models.CharField(
         max_length=20,
         choices=[
-            ('ended',' Ended'),
             ('waiting','Waiting'),
             ('5', '5%'),
             ('10', '10%'),

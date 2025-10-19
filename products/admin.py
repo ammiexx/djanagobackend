@@ -11,14 +11,15 @@ class ProductImageInline(admin.TabularInline):
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     inlines = [ProductImageInline]
-    list_display = ("product_name", "company_name", "category", "verified", "date_posted")
+    list_display = ("product_name", "company_name", "category", "verified", "date_posted","location","contact_phone",
+                    "contact_telegram","contact_tick","web_site",)
     list_filter = ("verified", "category")
     search_fields = ("product_name", "company_name", "email")
     actions = ["mark_verified", "mark_unverified"]
     list_editable = ("verified",)
     fields = (
         "product_name", "company_name", "category", "verified",
-        "latitude", "longitude",  # 👈 ensure these are in the form
+        "latitude", "longitude","discount_start_date","discount_duration","profile_photo",
         "location", "contact_phone", "contact_telegram", "contact_tick",
         "web_site", "discount", "condition", "description",
         "product_photo", "product_video"
