@@ -25,7 +25,7 @@ class Product(models.Model):
     discount = models.CharField(
         max_length=20,
         choices=[
-            ('waiting','Waiting'),
+            ('waiting','Waiting For Discount'),
             ('5', '5%'),
             ('10', '10%'),
             ('15', '15%'),
@@ -33,7 +33,7 @@ class Product(models.Model):
             ('30', '30%'),
             ('40', '40%'),
             ('50', '50%'),
-            ('coming', 'Coming'),
+            ('coming', 'Coming Soon'),
         ],
         default='waiting'
     )
