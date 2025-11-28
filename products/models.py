@@ -34,6 +34,7 @@ class Product(models.Model):
             ('40', '40%'),
             ('50', '50%'),
             ('coming', 'Coming Soon'),
+            ('open', 'We are open'),
         ],
         default='waiting'
     )
