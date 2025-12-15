@@ -44,7 +44,7 @@ class Product(models.Model):
 
     category = models.CharField(
         max_length=50,
-        choices=[('men', 'Men Fashions'), ('women', 'Women Fashions'),('homes', 'Homes'),('carbrands', 'Car Brands'),
+        choices=[('men', 'Men Fashions'),('banks', 'Banks'), ('women', 'Women Fashions'),('homes', 'Homes'),('carbrands', 'Car Brands'),
                  ('foods', 'Foods & Beverages'),('appliances', 'Home & Appliances'),('health', 'Health & Beauties'),
                  ('events', 'Events & Weddings'),('entertainments', 'Intertainments'),('travels', 'Travels'),
                  ('daily', 'Daily Discounts'),('weekly', 'Weekly Discounts'),('new', 'New Advantages'),
