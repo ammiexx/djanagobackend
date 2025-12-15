@@ -35,6 +35,9 @@ class Product(models.Model):
             ('50', '50%'),
             ('coming', 'Coming Soon'),
             ('open', 'We are open'),
+            ('prize', 'For prize'),
+            ('student', 'For Students'),
+            ('teacher', 'For Teachers'),
         ],
         default='waiting'
     )
