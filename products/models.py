@@ -33,13 +33,36 @@ class Product(models.Model):
             ('30', '30%'),
             ('40', '40%'),
             ('50', '50%'),
+        ],
+        default='waiting'
+    )
+
+    additional_tips= models.CharField(
+        max_length=20,
+        choices=[
+            ('only_discount','Only discount'),
             ('coming', 'Coming Soon'),
             ('open', 'We are open'),
             ('prize', 'For prize'),
-            ('student', 'For Students'),
-            ('teacher', 'For Teachers'),
+            ('bonus','Bonus'),
+            ('dubie','Dubie'),
         ],
-        default='waiting'
+        default='only_discount'
+    )
+
+    for_whom= models.CharField(
+        max_length=20,
+        choices=[
+            ('everybody','Every body'),
+            ('teachers', 'For Teachers'),
+            ('students', 'For Students'),
+            ('teenagers', 'For Teenagers'),
+            ('elders','For Elders'),
+            ('disables','For Disables'),
+            ('special','For Special Needs'),
+            ('holyday','For Holyday'),
+        ],
+        default='everybody'
     )
 
     category = models.CharField(
