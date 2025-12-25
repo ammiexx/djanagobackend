@@ -11,10 +11,10 @@ class ProductImageInline(admin.TabularInline):
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     inlines = [ProductImageInline]
-    list_display = ("product_name", "company_name", "category", "verified", "date_posted","location","contact_phone",
+    list_display = ("product_name", "company_name", "category", "verified", "date_posted", "for_whom","additional_tips","location","contact_phone",
                     "contact_telegram","contact_tick","web_site",)
     list_filter = ("verified", "category")
-    search_fields = ("product_name", "company_name", "email")
+    search_fields = ("product_name", "company_name", "email","additional_tips","location","contact_phone")
     actions = ["mark_verified", "mark_unverified"]
     list_editable = ("verified",)
     fields = (
@@ -22,7 +22,7 @@ class ProductAdmin(admin.ModelAdmin):
         "latitude", "longitude","discount_start_date","discount_duration","profile_photo",
         "location", "contact_phone", "contact_telegram", "contact_tick",
         "web_site", "discount", "condition", "description",
-        "product_photo", "product_video"
+        "product_photo", "product_video","for_whom", "additional_tips",
     )
     class Media:
         js = ("products/admin_geolocation.js",)
