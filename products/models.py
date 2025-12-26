@@ -43,6 +43,8 @@ class Product(models.Model):
             ('only_discount','Only discount'),
             ('coming', 'Coming Soon'),
             ('open', 'We are open'),
+            ('sale', 'For Sale'),
+            ('rent', 'For rent'),
             ('prize', 'For prize'),
             ('bonus','Bonus'),
             ('dubie','Dubie'),
