@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
-import dj_database_url
 BASE_DIR = Path(__file__).resolve().parent.parent
 import os
 import environ
@@ -125,21 +124,15 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'painting.wsgi.application'
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': config('DB_NAME'),
-#         'USER': config('DB_USER'),
-#         'PASSWORD': config('DB_PASSWORD'),
-#         'HOST': config('DB_HOST'),
-#         'PORT': config('DB_PORT'),
-#         'OPTIONS': {
-#             'sslmode': 'require',
-#         },
-#     }
-# }
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'), ssl_require=True)
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': config('DB_PORT'),
+    }
 }
 
 AUTH_PASSWORD_VALIDATORS = [
