@@ -49,7 +49,7 @@ class Product(models.Model):
             ('bonus','Bonus'),
             ('dubie','Dubie'),
             ('giveaway', 'For Give Away'),
-            ('Equb','For Equb'),
+            ('equb','For Equb'),
             ('exchange','For Echange'),
         ],
         default='only_discount'
